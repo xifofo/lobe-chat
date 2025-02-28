@@ -3,11 +3,12 @@
 import { ActionIcon } from '@lobehub/ui';
 import { createStyles } from 'antd-style';
 import { MessageSquarePlus } from 'lucide-react';
+import Image from 'next/image';
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Flexbox } from 'react-layout-kit';
 
-import { ProductLogo } from '@/components/Branding';
+// import { ProductLogo } from '@/components/Branding';
 import { DESKTOP_HEADER_ICON_SIZE } from '@/const/layoutTokens';
 import SyncStatusTag from '@/features/SyncStatusInspector';
 import { useActionSWR } from '@/libs/swr';
@@ -39,7 +40,11 @@ const Header = memo(() => {
     <Flexbox className={styles.top} gap={16} padding={16}>
       <Flexbox distribution={'space-between'} horizontal>
         <Flexbox align={'center'} gap={4} horizontal>
-          <ProductLogo className={styles.logo} size={36} type={'text'} />
+          {/* <ProductLogo className={styles.logo} size={36} type={'text'} /> */}
+          <Flexbox align={'center'} gap={8} horizontal>
+            <Image alt="LOGO" height={35} src="/images/logo_w.png" width={35} />
+            <span style={{ fontSize: 16, fontWeight: 500, letterSpacing: 1 }}>智教温职</span>
+          </Flexbox>
           {enableWebrtc && <SyncStatusTag />}
         </Flexbox>
         {showCreateSession && (
