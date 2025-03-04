@@ -25,9 +25,6 @@ const Client = memo<ClientProps>(({ modelList, assistantList, pluginList }) => {
       </Title>
       <AssistantList data={assistantList} />
       <div />
-      <Title more={t('home.more')} moreLink={'/discover/plugins'}>
-        {t('home.featuredTools')}
-      </Title>
       <PluginList data={pluginList} />
       <div />
       <Title more={t('home.more')} moreLink={'/discover/models'}>

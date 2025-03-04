@@ -1,16 +1,12 @@
 'use client';
 
-import { Avatar, Icon, Tag } from '@lobehub/ui';
-import { Button } from 'antd';
+import { Avatar, Tag } from '@lobehub/ui';
 import { createStyles } from 'antd-style';
 import { startCase } from 'lodash-es';
-import { ChevronRight } from 'lucide-react';
 import Link from 'next/link';
 import qs from 'query-string';
 import { memo } from 'react';
-import { useTranslation } from 'react-i18next';
 import { Flexbox } from 'react-layout-kit';
-import urlJoin from 'url-join';
 
 import { DiscoverPlugintem } from '@/types/discover';
 
@@ -42,7 +38,6 @@ interface HeaderProps {
 
 const Header = memo<HeaderProps>(({ identifier, data, mobile }) => {
   const { styles, theme } = useStyles();
-  const { t } = useTranslation('discover');
 
   return (
     <Flexbox gap={12} width={'100%'}>
@@ -69,25 +64,6 @@ const Header = memo<HeaderProps>(({ identifier, data, mobile }) => {
             </Flexbox>
           </Flexbox>
         </Flexbox>
-        {!mobile && (
-          <Flexbox align={'center'} gap={4} horizontal justify={'flex-end'}>
-            <Link href={'/discover/plugins'}>
-              <Button className={styles.tag} shape={'round'} size={'small'}>
-                {t('tab.plugins')}
-              </Button>
-            </Link>
-            {data.meta?.category && (
-              <>
-                <Icon color={theme.colorTextSecondary} icon={ChevronRight} />
-                <Link href={urlJoin('/discover/plugins', data.meta?.category || '')}>
-                  <Button className={styles.tag} shape={'round'} size={'small'}>
-                    {t(`category.plugin.${data.meta?.category}` as any)}
-                  </Button>
-                </Link>
-              </>
-            )}
-          </Flexbox>
-        )}
       </Flexbox>
       <div>{data.meta.description}</div>
       {data.meta.tags && (

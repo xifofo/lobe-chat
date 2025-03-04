@@ -1,5 +1,5 @@
 import { Icon } from '@lobehub/ui';
-import { Bot, Brain, BrainCircuit, House, Puzzle } from 'lucide-react';
+import { Bot, Brain, BrainCircuit, House } from 'lucide-react';
 import { usePathname } from 'next/navigation';
 import { ReactNode, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -37,11 +37,6 @@ export const useNav = () => {
         icon: <Icon icon={Bot} size={iconSize} />,
         key: DiscoverTab.Assistants,
         label: t('tab.assistants'),
-      },
-      {
-        icon: <Icon icon={Puzzle} size={iconSize} />,
-        key: DiscoverTab.Plugins,
-        label: t('tab.plugins'),
       },
       {
         icon: <Icon icon={Brain} size={iconSize} />,
